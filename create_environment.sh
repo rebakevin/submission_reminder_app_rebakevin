@@ -5,7 +5,7 @@ echo "Enter your name:"
 read user_name
 
 # Create main project directory
-project_dir="submission_reminder_${user_name}1"
+project_dir="submission_reminder_${user_name}"
 echo "Creating project directory: $project_dir"
 mkdir -p "$project_dir"
 
