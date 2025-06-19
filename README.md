@@ -61,3 +61,4 @@ This task was all about trying to use best git workflow practices.
 1. I did all the raw work on `feat/setup` branch
 2. Made sure that the project will have the required file structure
 3. I was committing after doing a major task
+4. After, I'm going to raise a PR from this `feat/setup` branch to main and merge it
