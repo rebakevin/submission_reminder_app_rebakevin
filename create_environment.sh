@@ -2,10 +2,10 @@
 
 # Prompt user for their name
 echo "Enter your name:"
-read names
+read user_name
 
 # Create main project directory
-project_directory="submission_reminder_${names}"
+project_directory="submission_reminder_${user_name}"
 echo "Creating project directory: $project_directory"
 mkdir -p "$project_directory"
 
