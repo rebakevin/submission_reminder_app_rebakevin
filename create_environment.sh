@@ -2,21 +2,21 @@
 
 # Prompt user for their name
 echo "Enter your name:"
-read user_name
+read names
 
 # Create main project directory
-project_dir="submission_reminder_${user_name}"
-echo "Creating project directory: $project_dir"
-mkdir -p "$project_dir"
+project_directory="submission_reminder_${names}"
+echo "Creating project directory: $project_directory"
+mkdir -p "$project_directory"
 
 # Create subdirectories
-mkdir -p "$project_dir/app"
-mkdir -p "$project_dir/modules"
-mkdir -p "$project_dir/assets"
-mkdir -p "$project_dir/config"
+mkdir -p "$project_directory/app"
+mkdir -p "$project_directory/modules"
+mkdir -p "$project_directory/assets"
+mkdir -p "$project_directory/config"
 
-# Create reminder.sh in app directory
-cat > "$project_dir/app/reminder.sh" << 'EOF'
+# reminder.sh
+cat > "$project_directory/app/reminder.sh" << 'EOF'
 #!/bin/bash
 
 # Source environment variables and helper functions
@@ -34,8 +34,8 @@ echo "--------------------------------------------"
 check_submissions $submissions_file
 EOF
 
-# Create functions.sh in modules directory
-cat > "$project_dir/modules/functions.sh" << 'EOF'
+# functions.sh
+cat > "$project_directory/modules/functions.sh" << 'EOF'
 #!/bin/bash
 
 # Function to read submissions file and output students who have not submitted
@@ -58,8 +58,8 @@ function check_submissions {
 }
 EOF
 
-# Create submissions.txt in assets directory
-cat > "$project_dir/assets/submissions.txt" << 'EOF'
+# submissions.txt
+cat > "$project_directory/assets/submissions.txt" << 'EOF'
 student, assignment, submission status
 Chinemerem, Shell Navigation, not submitted
 Chiagoziem, Git, submitted
@@ -72,15 +72,15 @@ Pacy, Shell Navigation, submitted
 Igor, Git, not submitted
 EOF
 
-# Create config.env in config directory
-cat > "$project_dir/config/config.env" << 'EOF'
+# config.env
+cat > "$project_directory/config/config.env" << 'EOF'
 # This is the config file
 ASSIGNMENT="Shell Navigation"
 DAYS_REMAINING=2
 EOF
 
 # Create startup.sh in root directory
-cat > "$project_dir/startup.sh" << 'EOF'
+cat > "$project_directory/startup.sh" << 'EOF'
 #!/bin/bash
 
 echo "Starting Submission Reminder Application..."
@@ -112,13 +112,11 @@ echo ""
 echo "Application finished."
 EOF
 
-# Make all .sh files executable in the project directory
+# making all files executable
 echo "Setting executable permissions for all .sh files..."
-find "$project_dir" -name "*.sh" -type f -exec chmod +x {} \;
+find "$project_directory" -name "*.sh" -type f -exec chmod +x {} \;
 
 echo "Project setup complete!"
-echo "Project structure created in: $project_dir"
 echo ""
 echo "To run the project:"
-echo "cd $project_dir"
 echo "./startup.sh"
