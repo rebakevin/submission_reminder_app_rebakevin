@@ -29,7 +29,7 @@ fi
 echo ""
 echo "Updating assignment from '$current_assignment' to '$new_assignment'..."
 
-# Use sed to replace the ASSIGNMENT value in config.env
+# Replace ASSIGNMENT value in config.env using sed
 sed -i "s/^ASSIGNMENT=.*/ASSIGNMENT=\"$new_assignment\"/" ./submission_reminder_kevin/config/config.env
 
 # Check if sed command was successful
